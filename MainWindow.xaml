@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfFilteredCollection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFilteredCollection"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+
+        </Grid.RowDefinitions>
+
+        <Label Margin="10" Height="28" Grid.Row="0">Filter on length (name of user): </Label>
+
+        <TextBox Margin="10" Width="100" HorizontalAlignment="Left" Background="AliceBlue" Grid.Row="1" Height="28" Text="{Binding FilterNameLength, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <ListView Grid.Row="2" Margin="10" ItemsSource="{Binding Users}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="300" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="IsAdmin" Width="100" DisplayMemberBinding="{Binding IsAdmin}" />
+                </GridView>
+            </ListView.View>       
+        </ListView>
+
+    </Grid>
+</Window>
